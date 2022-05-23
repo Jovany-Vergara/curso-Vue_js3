@@ -7,6 +7,27 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <div id="app"></div>
+  <spam></spam>
+  <br />
+
+  <input type="text" />
+
+  <script>
+    const data = {
+      message:"Hello World"
+    };
+
+    const span = document.querySelector('spam');
+    span.innerText = data.message;
+
+    const input = document.querySelector('input');
+    input.value = data.message;
+
+    input.addEventListener("input", () => {
+      data.message = input.value;
+      span.innerText = data.message;
+    });
+  </script>
 </body>
 </html>
