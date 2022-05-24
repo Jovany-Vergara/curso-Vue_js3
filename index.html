@@ -7,27 +7,24 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="app"></div>
-  <spam></spam>
-  <br />
+  <div id="app">
+    <span v-text="message"></span>
+    <br />
+    <input type="text" v-model="message" />
+  </div>
 
-  <input type="text" />
-
+  <script src="https://unpkg.com/vue@3"></script>
   <script>
-    const data = {
-      message:"Hello World"
-    };
+    const {createApp} = Vue;
 
-    const span = document.querySelector('spam');
-    span.innerText = data.message;
-
-    const input = document.querySelector('input');
-    input.value = data.message;
-
-    input.addEventListener("input", () => {
-      data.message = input.value;
-      span.innerText = data.message;
+    const app = createApp({
+      data() {
+        return {
+          message: 'Hello Vue!'
+        }
+      },
     });
+    app.mount('#app');
   </script>
 </body>
 </html>
